@@ -21,8 +21,5 @@ class BasePage:
     def open_link(self, url):
         return self.driver.get(url)
 
-    def get_current_url(self):
-        return self.driver.current_url
-
     def switch_tab(self, num):
         return self.driver.switch_to.window(self.driver.window_handles[num])

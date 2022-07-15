@@ -12,7 +12,8 @@ def test_search_images(browser):
     images.click()
     page = ImagesPage(browser)
     page.switch_tab(1)
-    assert page.driver.current_url == 'https://yandex.ru/images/?utm_source=main_stripe_big'  #'https://yandex.ru/images/'
+    url = page.driver.current_url
+    assert url[:url.find('?utm')] == 'https://yandex.ru/images/'
     text = page.get_first_category().get_attribute('data-grid-text')
     page.get_first_category().click()
     time.sleep(2)
